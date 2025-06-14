@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+:root{//these are the default settings
+  --mainColor: #0B1215;
+  --subMainColor: #800000;
+  --textColor: #FAF0E6;
+  --fontFamily:'Press Start 2P';
+  --background: radial-gradient(var(--mainColor)50%, var(--subMainColor)100%);
+}
+body.light-mode{//these are the light mode settings
+  --mainColor: #FAF0E6;
+  --subMainColor: #800000;
+  --textColor: #0B1215;
+  --fontFamily: 'Press Start 2P';
+  --background: linear-gradient(135deg,var(--mainColor), var(--subMainColor));
+}
+body{
+  background: var(--background);
+  background-repeat: no-repeat;
+  color: var(--textColor);
+  height: 970px;
+  overflow: hidden;
+  font-family: var(--fontFamily);
+
+  .mainFrame{
+    background: var(--subMainColor);
+    width: 50%;
+    margin: 100px auto 0;
+    border-radius:20px;
+    height: 50%;
+
+    h1{
+      margin: 50px;
+      padding: 30px;
+      text-align: center;
+    }
+    .display{
+      display: flex;
+      justify-content: space-between;
+      margin: 50px;
+      background: var(--mainColor);
+      width: auto;
+      border-radius: 100px;
+
+      .password{
+        background: transparent;
+        color: var(--textColor);
+        font-size: 20px;
+        text-align: center;
+        border: none;
+        border-radius: 100px;
+        width: 80%;
+        margin-top: 10px;
+        margin-right: 10px;
+        &::placeholder{
+          color: var(--textColor);
+          text-align: center;
+          font-family: var(--fontFamily);
+          font-size: 20px ;
+        }
+        &:focus{
+          outline: none;
+        }
+      }
+      .copyIcon{
+        background: transparent;
+        border: none;
+        margin-top: 10px;
+        cursor: pointer;
+        .icon{
+          width: 40px;
+          height: 40px;
+          transition: all 0.3s ease-in-out;
+          &:hover{
+            transform: scale(1.25);
+          }
+          &:active{
+            transform: scale(0.95);
+          }
+        }
+      }
+    }
+    .generator{
+      border: none;
+      background: var(--mainColor);
+      color: var(--textColor);
+      margin-left: 60px;
+      border-radius: 100px;
+      font-family: var(--fontFamily);
+      font-size: 10px;
+      height: 30px;
+      width: 200px;
+      cursor: pointer;
+
+      transition: all 0.3s ease-in-out; /* Smooth blend effect */
+      &:hover{
+        height: 40px;
+        width: 250px;
+        box-shadow: 0 0 20px var(--textColor);
+        background: var(--background);
+      }
+      &:active{
+        transform: scale(0.95);
+        background: var(--textColor);
+        box-shadow: inset 0 0 5px var(--subMainColor);
+        color: var(--mainColor);
+      }
+    }
+
+
+    //THEME TOGGLE SECTION
+    //A label is linked to input, so when label is clicked the input is clicked.In out case the input is checkbox.
+
+    .labels{//this part designs the shape of the label the outer shape
+      width: 100px;
+      height: 50px;
+      position: relative;
+      display: block;
+      background: #786978;
+      border-radius: 200px;
+      box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: 0.3s;
+      &:after{
+        //after is a pseudo-element that is used to add content to a html element without adding html.
+        //this part is for  the color that keeps on sliding when clicked.In our case in darkmode it will be red
+        content: "";
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        background: var(--subMainColor);
+        border-radius: 200px;
+        box-shadow: 0px 5px 10px var(--mainColor);
+      }
+      &:active:after{
+        //this will make the color thing to add width when clicked to show transition from dark mode to light mode.
+        width: 50px;
+      }
+      img{//These are the images of the sun and moon
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: 5px;
+        z-index: 100;
+        &.moon{
+          left: 5px;
+          transition: 0.3s;
+        }
+        &.sun{
+          left: 60px;
+          transition: 0.3s;
+        }
+      }
+
+    }
+    input.toggle{
+      //This directly refers to the input.
+      //Since our input is type checkbox,we dont need to see the actual checkbox.
+      width: 0;
+      height: 0;
+      visibility: hidden;
+      &:checked+.labels{
+        //The label background will change from the dark color to white when the checkbox is checked
+        background: #ffffff;//this is for the background of the toggle slider when checked
+        &:after{
+          //The color thing when dark mode it  was on the left and with a red color, now it will move to the right and have a new color that is linear-gradient
+          left: 75px;
+          transform: translateX(-50%);
+          background: linear-gradient(90deg, #ffccB9,#d8860b);
+        }
+      }
+
+    }
+
+  }
+
+}

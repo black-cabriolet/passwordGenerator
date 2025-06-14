@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>passwordGenerator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/title.png">
+</head>
+<body>
+<div class="mainFrame">
+    <h1>Generate a Random Password</h1>
+    <div class="display" id="display">
+        <input type="text" id="password" class="password" readonly placeholder="password">
+        <button id="copyIcon" class="copyIcon">
+            <img src="images/whitecopy.png" alt="copy" class="icon" id="icon">
+        </button>
+
+    </div>
+    <div class="others" id="others">
+        <input type="number" class="length" id="length" value="12" placeholder="Password Length">
+        <br>
+
+        <label><input type="checkbox" id="useUpper" checked>Include Uppercase</label>
+        <label><input type="checkbox" id="useLower" checked>Include Lowercase</label>
+        <label><input type="checkbox" id="useNumbers" checked>Include Numbers</label>
+        <label><input type="checkbox" id="useSymbols" checked>Include Symbols</label>
+
+        <br>
+    </div>
+    <button class="generator" id="generator">Generate Password</button>
+    <br>
+    <br>
+    <input type="checkbox"  id="toggle" class="toggle">
+    <label for="toggle" class="labels">
+        <img src="images/moon.png" alt="moon" class="moon">
+        <img src="images/sun.png" alt="lightmode" class="sun">
+    </label>
+
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
