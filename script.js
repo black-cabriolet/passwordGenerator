@@ -9,7 +9,7 @@ const toggleButton = document.getElementById('toggle');
 
 
 function shuffle(str){
-    return [...str].sort(()=> Math.random()-o.5).join('');
+    return [...str].sort(()=> Math.random()-0.5).join('');
 }
 //Function to create a secure ,random password
 /**
@@ -32,7 +32,7 @@ function createPassword(){
     //Define character sets
     const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-    const number = "0123456789";
+    const numbers = "0123456789";
     const symbols = "!@#$%^&*()_+-=[]{}|;:,.<>?";
 
 
